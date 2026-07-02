@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>今晚吃什么</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hd">
+      <h1>今晚吃什么</h1>
+      <button id="profileBtn" class="link-btn" title="我的画像">👤 我的画像</button>
+    </header>
+
+    <!-- 输入区 -->
+    <section id="inputCard" class="card input-card">
+      <label class="field">
+        <span class="lbl">今天早/午餐吃了啥？</span>
+        <textarea id="meals" rows="2" placeholder="一句话就行，比如：早上吉野家牛肉饭，中午没吃"></textarea>
+      </label>
+      <label class="field">
+        <span class="lbl">当下心情/口味 <em>(可选)</em></span>
+        <input id="mood" type="text" placeholder="比如：嘴里没味 / 心情不好 / 想吃点热乎的" />
+      </label>
+      <button id="askBtn" class="primary">告诉我今晚吃啥 →</button>
+    </section>
+
+    <!-- 结果卡片 -->
+    <section id="resultCard" class="card result-card hidden">
+      <div class="verdict">今晚吃 <span id="dish">—</span>。</div>
+      <p id="reason" class="reason">—</p>
+
+      <div class="actions">
+        <button id="wantBtn" class="ghost">😋 想吃，怎么弄</button>
+        <button id="rejectBtn" class="ghost">🙅 不想吃，换一个</button>
+      </div>
+
+      <div id="howto" class="howto hidden">
+        <div class="howto-row"><span class="tag">去哪买</span><p id="buy">—</p></div>
+        <div class="howto-row"><span class="tag">怎么做</span><p id="cook">—</p></div>
+      </div>
+
+      <button id="againBtn" class="link-btn back">← 重新输入</button>
+    </section>
+
+    <p id="hint" class="hint"></p>
+  </main>
+
+  <!-- 画像弹层 -->
+  <div id="profileMask" class="mask hidden">
+    <div class="modal">
+      <h2>我的画像</h2>
+      <p class="sub">只用于让推荐更准，仅存在你自己的浏览器里，不上传。</p>
+      <div class="grid2">
+        <label class="field"><span class="lbl">性别</span>
+          <select id="pGender"><option value="">—</option><option>男</option><option>女</option></select>
+        </label>
+        <label class="field"><span class="lbl">年龄</span>
+          <input id="pAge" type="number" min="1" max="120" placeholder="如 25" />
+        </label>
+        <label class="field"><span class="lbl">身高 (cm)</span>
+          <input id="pHeight" type="number" min="50" max="250" placeholder="如 175" />
+        </label>
+        <label class="field"><span class="lbl">体重 (kg)</span>
+          <input id="pWeight" type="number" min="20" max="300" placeholder="如 70" />
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button id="pSave" class="primary">保存</button>
+        <button id="pSkip" class="link-btn">先跳过</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

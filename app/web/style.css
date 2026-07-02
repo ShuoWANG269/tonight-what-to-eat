@@ -1,0 +1,160 @@
+:root {
+  --bg: #faf6f0;
+  --card: #ffffff;
+  --ink: #2b2b2b;
+  --muted: #8a8178;
+  --accent: #e8632a;
+  --accent-dark: #c94f1c;
+  --line: #efe7dc;
+  --shadow: 0 6px 24px rgba(120, 90, 60, 0.10);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 20px 18px 60px;
+  min-height: 100vh;
+}
+
+.hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 2px 22px;
+}
+.hd h1 { font-size: 24px; margin: 0; letter-spacing: 1px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: var(--shadow);
+}
+
+.field { display: block; margin-bottom: 16px; }
+.lbl { display: block; font-size: 14px; color: var(--muted); margin-bottom: 7px; }
+.lbl em { font-style: normal; opacity: 0.7; }
+
+textarea, input, select {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fdfbf8;
+  outline: none;
+  resize: none;
+}
+textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+
+.primary {
+  width: 100%;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  padding: 13px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.primary:hover { background: var(--accent-dark); }
+.primary:disabled { opacity: .55; cursor: default; }
+
+.ghost {
+  flex: 1;
+  font: inherit;
+  color: var(--accent-dark);
+  background: #fff3ec;
+  border: 1px solid #f7d9c8;
+  border-radius: 11px;
+  padding: 11px;
+  cursor: pointer;
+}
+.ghost:hover { background: #ffe8db; }
+
+.link-btn {
+  font: inherit;
+  font-size: 14px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.link-btn:hover { color: var(--accent); }
+
+/* 结果卡片 */
+.result-card { text-align: center; }
+.verdict { font-size: 26px; font-weight: 700; margin: 6px 0 4px; }
+#dish { color: var(--accent); }
+.reason { color: #6a6158; margin: 4px 4px 20px; font-size: 15px; }
+
+.actions { display: flex; gap: 10px; margin-bottom: 6px; }
+
+.howto {
+  margin-top: 16px;
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+  text-align: left;
+}
+.howto-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+.howto-row p { margin: 0; font-size: 14px; color: #55504a; }
+.tag {
+  flex: none;
+  font-size: 12px;
+  color: var(--accent-dark);
+  background: #fff3ec;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+
+.back { margin-top: 18px; }
+
+.hint { text-align: center; color: var(--muted); font-size: 13px; margin-top: 16px; min-height: 20px; }
+
+/* 弹层 */
+.mask {
+  position: fixed; inset: 0;
+  background: rgba(40, 30, 20, .35);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; z-index: 10;
+}
+.modal {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 24px 22px;
+  width: 100%; max-width: 420px;
+  box-shadow: var(--shadow);
+}
+.modal h2 { margin: 0 0 4px; font-size: 20px; }
+.modal .sub { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid2 .field { margin-bottom: 4px; }
+.modal-actions { display: flex; align-items: center; gap: 14px; margin-top: 18px; }
+.modal-actions .primary { width: auto; flex: 1; }
+
+.hidden { display: none !important; }
+
+.loading { position: relative; color: transparent !important; }
+.loading::after {
+  content: ""; position: absolute; inset: 0; margin: auto;
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid #fff; border-top-color: transparent;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

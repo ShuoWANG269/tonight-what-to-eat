@@ -1,0 +1,12 @@
+{
+  "name": "twcs-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "今晚吃什么 · 1.0 核心闭环（薄网关 + 单页前端），零运行时依赖",
+  "type": "commonjs",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  }
+}
